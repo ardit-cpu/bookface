@@ -1,0 +1,66 @@
+<title>Signer</title>
+<link rel="stylesheet" href="style.css">
+
+<form id="signer" name="loger" onsubmit="return aheder()">
+<input type="text" placeholder="Username" name="user">
+<input type="text" placeholder="Password" name="pwd">
+<input type="submit" value="Sign in"  >
+<h1 id="s" style="color: rgb(0, 0, 0); position: absolute; top: 3cm; text-align: center;"></h1>
+</form>
+<div class="rota" id="ser"></div>
+<style>
+    html{
+        background: #666666;
+    }
+    #signer input{
+        background: transparent;
+        border: 1px solid rgb(255, 255, 255);
+        color: white;
+}
+#signer input:hover{
+    border-color: yellow;
+}
+.rota{
+    width: 5cm;
+    height: 5cm;
+    border-radius: 50%;
+    border: 10px solid ;
+    border-color: red black;
+    animation: 1s linea infinite;
+    display: none;
+}
+@keyframes linea{
+    to{transform: rotate(360deg)}
+}
+</style>
+<script>
+    function aheder(){
+        var x = document.forms["loger"]["user"].value
+        var l = document.forms["loger"]["pwd"].value
+      if(x == "admin"){
+        document.getElementById("s").innerHTML = "Wait for page to Riderect ";
+        setTimeout(function(){
+            window.location = "profile.html"
+
+        }, 1000)
+          return false;
+      }
+      if(l == "" || l == null){
+          document.getElementById("s").innerHTML = "wrong password"
+          return false;
+      }
+      if(l == "admin"){
+          document.getElementById('s').innerHTML = "Wait for page to riderect to main porfile"
+          return false;
+      }
+      else{
+        document.getElementById('s').innerHTML = "Wrong Type"
+          return false;
+
+      }
+        var s = document.getElementById('ser')
+      s.style.display = "grid";
+      return false;
+    }
+   
+</script>
